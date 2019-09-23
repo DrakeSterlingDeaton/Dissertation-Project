@@ -1,0 +1,9 @@
+{
+  "name": "com.langpro",
+  "description": "Language processor",
+  "path": "/Users/Drake/Desktop/Dissertation/application/project/extension/host/langpro.py",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://knldjmfmopnpolahpmmgbagdohdnhkik/", "chrome-extension://inpfiiifhajlhicplcogoacfnmkmgpen/"
+  ]
+}

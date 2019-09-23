@@ -1,0 +1,62 @@
+<!DOCTYPE html>     <!-- This HTML is for an iframe that runs the google maps API. -->
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/WFMapIframe.css">
+</head>
+<body>
+  <div id="WFDisplayBox_MapIframe"></div>
+<script>
+function initMap () {
+    queryStr = location.search.toString();              // The location data for google maps has been appended to the end of this script's url.
+    placePatt = /(?<=(placeId=)).*(?=(&ownLoc))/;               // RegEx for extracting the placeId for the place that the user is looking up, from the src url
+    placeId = queryStr.match(placePatt)[0];
+    ownPatt = /(?<=(ownLoc=)).*/;                               // RegEx for extracting the LatLng coordinates of the user's current location, from the src url
+    ownLoc = queryStr.match(ownPatt)[0].split(',');
+    ownLocLat = parseFloat(ownLoc[0]);
+    ownLocLon = parseFloat(ownLoc[1]);
+    ownLocLatLon = {lat: ownLocLat, lng: ownLocLon}
+
+    var googleMap = new google.maps.Map(document.getElementById('WFDisplayBox_MapIframe'), {            // creating instance of google map's Map, attatch it to html element in this document
+        center: {lat: ownLocLat, lng: ownLocLon},                               // providing initial center coordinates for map
+        zoom: 5,                                                                // setting initial zoom level
+        minZoom: 2
+    });
+    var markerBounds = new google.maps.LatLngBounds();                // creating instance of LatLngBounds to allow for resizing of the Map later after both markers have been placed
+    var service = new google.maps.places.PlacesService(googleMap);  // creating instance of PlacesService so that data pertaining to the placeId from the queryStr can be fetched
+
+    function callback(place, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {      // if the placeId query to google's PlacesService was successful...
+            createMarker2(place);                                       // then a placemarker is created using the coordinates that have been returned within 'place'
+        };
+    };
+
+    function createMarker2(position) {
+        new google.maps.Marker({                                    // creating marker...
+            position: position.geometry.location,                   // providing Lat&Lng coords for marker
+            map: googleMap                                          // detailing which map the marker should be placed on
+        });
+        markerBounds.extend(position.geometry.location);            // extending the our marker bounds using the coords from our marker
+        createMarker1();                                            // creating another marker
+    };
+
+    function createMarker1() {              
+        new google.maps.Marker({                                    // creating marker for the users current location
+            position: ownLocLatLon,                                 // providing Lat&Lng coords for marker
+            label: 'You',                                           // giving the marker a name to disguish it from the other marker
+            map: googleMap                                          // detailing which map the marker should be placed on
+            });
+        markerBounds.extend(ownLocLatLon);                          // extending the our marker bounds using the coords from our marker
+        googleMap.fitBounds(markerBounds);                          // resizing the google maps display based on the marker bounds that have been provided
+        };
+
+    var request = {             // request to be sent to google's Places API
+        placeId: placeId,
+        fields: ['name', 'rating', 'formatted_phone_number', 'geometry']
+    };
+
+    service.getDetails(request, callback);  // sending request to Places API, and setting callback
+
+};</script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa2fKq4AtIZchKPBrETMr7MZF-2CvyA44&libraries=drawing,places&callback=initMap" async defer></script>
+</body>
+</html>
