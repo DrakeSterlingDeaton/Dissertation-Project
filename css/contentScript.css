@@ -1,0 +1,4 @@
+[id^=WFContextMenuButton]:focus {
+    all: none !important;
+    outline: none !important;
+}

@@ -1,0 +1,51 @@
+{
+    "name": "WhereFinder",
+    "version": "1.0",
+    "manifest_version": 2,
+    "description": "WhereFinder Application",
+    "homepage_url": "https://github.com/DrakeSterlingDeaton/Dissertation-Project",
+    "icons": {
+        "16": "media/W16.png",
+        "48": "media/W48.png",
+        "128": "media/W128.png"
+    },
+
+    "browser_action": {
+        "default_icon": "media/W16.png"
+    },
+
+    "permissions": [
+    "nativeMessaging", "contextMenus", "tabs", "activeTab", "http://*/*", "https://*/*, https://maps.googleapis.com/*"
+    ],
+
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>", "http://*/*", "http://127.0.0.1/*", "https://*/*", "https://127.0.0.1/*", "file:///*/*"],
+          "css": ["css/contentScript.css", "css/contentScript2.css", "css/contentScript3.css"],
+          "js": ["js/contentScript.js"]
+        }
+    ],
+
+    "web_accessible_resources": [ 
+        "html/WFMainDisplay.html",
+        "html/WFMapIframe.html",
+        "media/grey_circle.png",
+        "media/white_X.png",
+        "js/jquery-1.12.4.js",
+        "js/jquery-ui.js",
+        "js/WFMainDisplay.js",
+        "js/WFMapIframe.js",
+        "https://maps.googleapis.com/maps/api/js"
+    ],
+
+    "background": {
+        "scripts": ["js/background.js"],
+        "persistent": true
+    },
+
+    "content_security_policy": "script-src 'self' https://maps.googleapis.com 'sha256-G3MXsE+rHzFcPab0T2fKKemDfZEKP8rHqurNcrcAlAo='; object-src 'self'"
+}
+
+
+
+
