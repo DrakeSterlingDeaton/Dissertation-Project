@@ -64,8 +64,8 @@ class langpro:
         self.numOfResults = None                                    # number of search results
         self.con = self.connectDB()
         # API vars    
-        self.bingNewsClient = NewsSearchAPI(CognitiveServicesCredentials('0a7cbb9016154b76b52e515c471cfb73'))        # bing key might also be this one: 1a10e4dc6c2a4c91a5753ed71f20a1eb (key2)
-        self.bingImagesClient = ImageSearchAPI(CognitiveServicesCredentials('0a7cbb9016154b76b52e515c471cfb73'))
+        self.bingNewsClient = NewsSearchAPI(CognitiveServicesCredentials('********************************'))        # bing key might also be this one: 1a10e4dc6c2a4c91a5753ed71f20a1eb (key2)
+        self.bingImagesClient = ImageSearchAPI(CognitiveServicesCredentials('********************************'))
         self.wikiReg = r'^.*\n(?=\n*\=)'                 # RegEx to scrap the summary section of the wiki page matching the input text
        
     def initNLP(self):
@@ -235,7 +235,7 @@ class langpro:
         if self.loc['locBase'] == 'GCS':
             return
         url = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?'      # parameters
-        key = 'key=AIzaSyDa2fKq4AtIZchKPBrETMr7MZF-2CvyA44'                             # My Google Cloud API key
+        key = 'key=****************************************'                            # My Google Cloud API key
         i = 'input={}'.format(self.loc['params'])                                       # input text
         self.loc['placeReqURL'] = '&'.join([url,key,i,'inputtype=textquery'])           # Creating and storing the URL
         self.loc['googleKey'] = key

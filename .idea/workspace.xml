@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../ClientProject" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Web Application/usefulProjects/auth/projects/auth-demo" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Web Application/usefulProjects/auth/projects/auth-demo-2" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Web Application/usefulProjects/sessions/project/sessions" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../WebApplicationsProjectRepository_assignment" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/Week 5 code for exercises and demos/Code for exercises and demos" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/dynamic_content_ii/project/ajax" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="1944" />
+    <option name="height" value="1044" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
